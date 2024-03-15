@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavButton from "./NavButton";
 
 export default function Navbar () {
@@ -5,7 +6,9 @@ export default function Navbar () {
     return (
         <nav className="container">
 
-            <div>My Blog</div>
+            <div>
+                <Link className="red" to={"/"}> My Blog </Link> 
+            </div>
 
             <div>
 

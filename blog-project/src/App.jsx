@@ -1,30 +1,28 @@
 import Navbar from './components/Navbar'
 import HomePage from './pages/Home'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import PostPage from './pages/Post'
 
 function App() {
 
   return (
-    <main>
+    <BrowserRouter>
 
-      <BrowserRouter>
+      <Navbar />
 
-        <Navbar />
+      <Routes>
 
-        <Routes>
+        <Route  index={true} element={<HomePage />} />
 
-          <Route index={true} element={<HomePage />} />
+        <Route path='/latest' element={<HomePage pageInfo={"latest"} />} />
 
-          <Route path='/latest' element={<HomePage pageInfo={"latest"} />} />
+        <Route path='/top' element={<HomePage pageInfo={"top"} />} />
 
-          <Route path='/top' element={<HomePage pageInfo={"top"} />} />
+        <Route path='/post/:id' element={<PostPage />} />
 
-        </Routes>
+      </Routes>
 
-      </BrowserRouter>
-
-
-    </main>
+    </BrowserRouter>
   )
 }
 

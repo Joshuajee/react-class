@@ -68,3 +68,16 @@ nav {
 h2 a {
   text-decoration: none;
 }
+
+.blog-content {
+  background-color: #171717;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 24px;
+}
+
+
+a {
+  text-decoration: none;
+} 

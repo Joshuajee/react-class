@@ -5,12 +5,12 @@ import placeHolderIcon from "../assets/react.svg"
 
 export default function BlogCard (props) {
 
-    const { title, author } = props?.post
+    const { id, title, author } = props?.post
 
     return (
         <div className="blog-card">
 
-            <img className="profile-icon" src={placeHolderIcon} width={"50px"} height={"50px"} />
+            <img className="profile-icon" src={ author.profile === "" ?   placeHolderIcon : author.profile} width={"50px"} height={"50px"} />
 
             <div className="blog-info">
 
@@ -19,7 +19,7 @@ export default function BlogCard (props) {
                 <h4>Time</h4>
 
                 <h2>
-                    <Link to={"/post"}>
+                    <Link to={"/post/" + id}>
                      {title}
                     </Link>
                 </h2>
