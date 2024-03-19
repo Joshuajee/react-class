@@ -1,31 +1,34 @@
 import { Link } from "react-router-dom";
 import BlogCard from "../components/BlogCard";
-import posts from "../dummy";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { BASE_URL } from "../helper";
 
 /* eslint-disable react/prop-types */
 export default function HomePage (props) {
 
-    const [postList, setPostList]  = useState(posts)
-
-    console.log(posts)
+    const [postList, setPostList]  = useState([])
 
 
     useEffect(() => {
-        const newArray = [...posts]
+
+        async function getPosts(endpoint) {
+            try {
+              const response = await axios.get(BASE_URL + "posts/" + endpoint);
+              setPostList(response.data);
+            } catch (error) {
+              console.error(error);
+            }
+        }
 
         if (props.pageInfo == "latest") {
-            setPostList(newArray.sort((a, b) => b.date - a.date))
+            getPosts("latest")
         } else if (props.pageInfo == "top") {
-            setPostList(newArray.sort((a, b) => b.views - a.views))
+            getPosts("top")
         } else {
-            setPostList(posts)
+            getPosts("")
         }
     }, [props.pageInfo])
-
-    console.log("_______0000000")
-    console.log(posts[0])
-    console.log(postList[0])
 
     return(
         <>
