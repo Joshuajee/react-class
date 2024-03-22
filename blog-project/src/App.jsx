@@ -18,7 +18,7 @@ function App() {
 
         <Route path='/top' element={<HomePage pageInfo={"top"} />} />
 
-        <Route path='/post/:id' element={<PostPage />} />
+        <Route path='/post/:slug' element={<PostPage />} />
 
       </Routes>
 
