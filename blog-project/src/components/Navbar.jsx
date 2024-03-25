@@ -12,9 +12,9 @@ export default function Navbar () {
 
             <div>
 
-                <NavButton title="Sign Up" />
+                <NavButton title="Sign Up" link="/create-account" />
 
-                <NavButton title="Login" />
+                <NavButton title="Login" link={"/login"} />
 
 
             </div>
