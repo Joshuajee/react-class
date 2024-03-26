@@ -1,8 +1,11 @@
 import axios from "axios"
 import { useState } from "react"
 import { BASE_URL } from "../helper"
+import { useNavigate } from "react-router-dom"
 
 const SignUp = () => {
+
+    const navigation = useNavigate()
 
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -29,6 +32,9 @@ const SignUp = () => {
             console.log(response.data)
 
             alert("Success")
+
+            navigation("/")
+
         } catch (e) {
             console.log(e?.response?.data)
             const errorObj = e?.response?.data

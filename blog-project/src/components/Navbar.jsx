@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import NavButton from "./NavButton";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Navbar () {
+
+    const { token } = useContext(AuthContext)
 
     return (
         <nav className="container">
@@ -12,9 +16,26 @@ export default function Navbar () {
 
             <div>
 
-                <NavButton title="Sign Up" link="/create-account" />
+                {
+                    token && (
+                        <>
+                            <NavButton title="My Profile" link="/profile" />
+                            <NavButton title="My Blogs" link={"/my-blogs"} />                         
+                            <NavButton title="Create Post" link="/create-post" />
+                            <NavButton title="Logout" link={"/logout"} />                         
+                        </>
+                    )
+                }
 
-                <NavButton title="Login" link={"/login"} />
+
+                {
+                    !token && (
+                        <>
+                            <NavButton title="Sign Up" link="/create-account" />
+                            <NavButton title="Login" link={"/login"} />                         
+                        </>
+                    )
+                }
 
 
             </div>

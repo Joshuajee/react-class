@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import PostPage from './pages/Post'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
+import MyBlogPage from './pages/MyBlogs'
 
 function App() {
 
@@ -25,6 +26,8 @@ function App() {
         <Route path='/create-account' element={<SignUp />} />
 
         <Route path='/login' element={<Login />} />
+
+        <Route path='/my-blogs' element={<MyBlogPage />} />
 
 
       </Routes>

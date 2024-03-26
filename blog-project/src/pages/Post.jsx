@@ -33,7 +33,7 @@ export default function PostPage () {
 
     }, [slug])
 
-    if (true || loading) {
+    if (loading) {
         return (
             <div className="blog-container">
  
