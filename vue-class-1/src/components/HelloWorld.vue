@@ -21,6 +21,7 @@ const clicked = () => {
   alert("clicked")
 }
 
+
 </script>
 
 <template>

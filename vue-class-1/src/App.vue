@@ -1,26 +1,27 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import MyComponent from './components/MyComponent.vue'
-import Forms from './components/Forms.vue'
+import { RouterView, RouterLink } from  "vue-router"
+
 </script>
 
 <template>
-  <Forms />
-  <HelloWorld msg="Hello, World!" head="Good" />
-  <MyComponent />
+  <nav>
+    <RouterLink to="/">Home</RouterLink> 
+    <RouterLink to="/about">About</RouterLink> 
+    <RouterLink to="/contact">Contact</RouterLink> 
+    <RouterLink to="/user/Favour">User</RouterLink> 
+    <RouterLink to="/app">App</RouterLink> 
+    <router-link to="/ref">Ref</router-link>
+    <router-link to="/reactive">Reactive</router-link>
+
+
+  </nav>
+  <RouterView />
 </template>
 
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+  nav {
+    display: flex;
+    gap: 20px;
+  }
 </style>
